@@ -1,22 +1,22 @@
 var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
-    gulp-clean = require('gulp-clean');
+    clean = require('gulp-clean');
 
-gulp.task('copy', function() {
+gulp.task('copy', ['clean'], function() {
 
-  gulp.src('src/**/*')
+  return gulp.src('src/**/*')
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', function() {
 
-  gulp.src('dist')
+  return gulp.src('dist')
     .pipe(clean());
 });
 
-gulp.task('build-img', function() {
+gulp.task('build-img', ['copy'], function() {
 
   gulp.src('src/img/**/*')
-      .pipe(imagemin())
-      .pipe(gulp.dest('src/img'));
+    .pipe(imagemin())
+    .pipe(gulp.dest('src/img'));
 });
