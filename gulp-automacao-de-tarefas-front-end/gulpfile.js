@@ -8,6 +8,12 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('clean', function() {
+
+  gulp.src('dist')
+    .pipe(clean());
+});
+
 gulp.task('build-img', function() {
 
   gulp.src('src/img/**/*')
