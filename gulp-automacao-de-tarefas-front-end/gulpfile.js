@@ -23,9 +23,9 @@ gulp.task('clean', function() {
 
 gulp.task('build-img', function() {
 
-  gulp.src('src/img/**/*')
+  gulp.src('dist/img/**/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('src/img'));
+    .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('build-js', function() {
