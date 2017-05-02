@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     htmlReplace = require('gulp-html-replace'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    usemin = require('gulp-usemin');
 
 gulp.task('default', ['copy'], function() {
 
