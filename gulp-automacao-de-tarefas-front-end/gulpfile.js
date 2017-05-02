@@ -4,6 +4,11 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     htmlReplace = require('gulp-html-replace');
 
+gulp.task('default', ['copy'], function() {
+
+  gulp.start('build-img', 'build-js', 'build-html');
+});
+
 gulp.task('copy', ['clean'], function() {
 
   return gulp.src('src/**/*')
@@ -16,7 +21,7 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-gulp.task('build-img', ['copy'], function() {
+gulp.task('build-img', function() {
 
   gulp.src('src/img/**/*')
     .pipe(imagemin())
@@ -25,7 +30,7 @@ gulp.task('build-img', ['copy'], function() {
 
 gulp.task('build-js', function() {
 
-  gulp.src('dist/js/**/*.js')
+  gulp.src(['dist/js/jquery.js', 'dist/js/home.js', 'dist/js/produto.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('dist/js'));
 });
@@ -34,8 +39,7 @@ gulp.task('build-html', function() {
 
   gulp.src('dist/**/*.html')
     .pipe(htmlReplace({
-      js: 'all.js'
+      js: 'js/all.js'
     }))
     .pipe(gulp.dest('dist'));
-
 });
