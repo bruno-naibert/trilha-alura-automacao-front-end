@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     jshint = require('gulp-jshint'),
     jshintStylish = require('jshint-stylish'),
-    csslint = require('gulp-csslint');
+    csslint = require('gulp-csslint'),
+    autoprofixer = require('gulp-autoprefixer');
 
 gulp.task('default', ['copy'], function() {
 
