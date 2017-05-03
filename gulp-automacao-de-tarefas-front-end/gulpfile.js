@@ -1,75 +1,110 @@
-var gulp = require('gulp'),
-    imagemin = require('gulp-imagemin'),
-    clean = require('gulp-clean'),
-    concat = require('gulp-concat'),
-    htmlReplace = require('gulp-html-replace'),
-    uglify = require('gulp-uglify'),
-    usemin = require('gulp-usemin'),
-    cssmin = require('gulp-cssmin'),
-    browserSync = require('browser-sync'),
-    jshint = require('gulp-jshint'),
-    jshintStylish = require('jshint-stylish'),
-    csslint = require('gulp-csslint'),
-    autoprefixer = require('gulp-autoprefixer'),
-    less = require('gulp-less');
+var browserSync = require('browser-sync');
+var clean = require('gulp-clean');
+var csslint = require('gulp-csslint');
+var cssmin = require('gulp-cssmin');
+var gulp = require('gulp');
+var imagemin = require('gulp-imagemin');
+var jshint = require('gulp-jshint');
+var jshintStylish = require('jshint-stylish');
+var uglify = require('gulp-uglify');
+var usemin = require('gulp-usemin');
 
-gulp.task('default', ['copy'], function() {
+gulp.task('default', ['copiar'], tarefaPadrao);
+gulp.task('excluir', excluir);
+gulp.task('copiar', ['excluir'], copiar);
+gulp.task('minificar-arquivos', minificarArquivos);
+gulp.task('minificar-imagens', minificarImagens);
+gulp.task('servidor', servidor);
 
-  gulp.start('build-img', 'usemin');
-});
+/**
+ * Cria uma cópia do projeto para distribuição.
+ */
+function copiar()
+{
+    return gulp.src('src/**/*')
+               .pipe(gulp.dest('dist'));
+}
 
-gulp.task('copy', ['clean'], function() {
+/**
+ * Exclui todos os arquivos da pasta dist.
+ */
+function excluir()
+{
+    return gulp.src('dist')
+        .pipe(clean());
+}
 
-  return gulp.src('src/**/*')
-    .pipe(gulp.dest('dist'));
-});
+/**
+ * Minifica as imagens do projeto.
+ */
+function minificarImagens()
+{
+    gulp
+        .src('dist/img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/img'));
+}
 
-gulp.task('clean', function() {
+/**
+ * Minifica, concatena e ofusca códigos CSS e JS.
+ */
+function minificarArquivos()
+{
+    gulp
+        .src('dist/**/*.html')
+        .pipe(usemin({
+            minJS: [uglify],
+            minCSS: [cssmin]
+        }))
+        .pipe(gulp.dest('dist'));
+}
 
-  return gulp.src('dist')
-    .pipe(clean());
-});
+/**
+ * Tarefa executada como padrão.
+ */
+function tarefaPadrao()
+{
+    gulp.start('minificar-imagens', 'minificar-arquivos');
+}
 
-gulp.task('build-img', function() {
+/**
+ * Mini servidor local para executar o projeto e efetuar o recarregamento automático.
+ * Inclui a verificação automática de erros no JS e CSS.
+ */
+function servidor()
+{
+    browserSync.init({
+        server: {
+            baseDir: 'src'
+        }
+    });
 
-  gulp.src('dist/img/**/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('dist/img'));
-});
+    /**
+     * JSHint
+     */
+    gulp.watch('src/js/**/*.js')
+        .on('change', function (evento)
+        {
+            console.log('Linting: ' + evento.path);
+            gulp.src(evento.path)
+                .pipe(jshint())
+                .pipe(jshint.reporter(jshintStylish));
 
-gulp.task('usemin', function() {
+        });
 
-  gulp.src('dist/**/*.html')
-    .pipe(usemin({
-      'js' : [uglify],
-      'css' : [autoprefixer, cssmin]
-    }))
-    .pipe(gulp.dest('dist'));
-});
+    /**
+     * CSSLint
+     */
+    gulp.watch('src/css/**/*.css')
+        .on('change', function (evento)
+        {
+            console.log('Linting: ' + evento.path);
+            gulp.src(evento.path)
+                .pipe(csslint())
+                .pipe(csslint.reporter());
 
-gulp.task('server', function() {
+        });
 
-  browserSync.init({
-
-    server: {
-      baseDir: 'src'
-    }
-
-  });
-
-  gulp.watch('src/css/*css').on('change', function(event) {
-
-    gulp.src(event.path)
-      .pipe(csslint())
-      .pipe(csslint.reporter());
-  });
-
-  gulp.watch('src/js/*js').on('change', function(event) {
-
-    gulp.src(event.path)
-      .pipe(jshint())
-      .pipe(jshint.reporter(jshintStylish));
-  });
-
-  gulp.watch('src/**/*').on('change', browserSync.reload);
-});
+    gulp.watch('src/**/*')
+        .on('change', browserSync.reload);
+}
