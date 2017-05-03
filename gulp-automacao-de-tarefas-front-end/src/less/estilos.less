@@ -1,5 +1,9 @@
 @cor: #dcdcdc;
 
+.texto-sombreado(@top, @left, @blur, @cor) {
+  text-shadow: @top @left @blur @cor;
+}
+
 
 
 body {
@@ -236,7 +240,7 @@ footer .container {
   box-shadow: 1px 1px 4px #999;
 }
 .painel h2 {
-  text-shadow: 1px 1px 2px #FFF;
+  .texto-sombreado(1px, 1px, 2px, #FFF);
 }
 
 .busca {
@@ -245,6 +249,7 @@ footer .container {
 }
 .painel h2 {
   text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+  .texto-sombreado(1px, 1px, 2px, rgba(255,255,255,0.8));
 }
 
 
