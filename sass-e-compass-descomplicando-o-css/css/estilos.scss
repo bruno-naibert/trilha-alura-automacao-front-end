@@ -1,5 +1,6 @@
-$cor-padrao: #c24e4b;
-$cor-auxiliar: #1e2c35;
+$primeira-cor: #c24e4b;
+$segunda-cor: #1e2c35;
+$terceira-cor: #fff;
 /** Geral **/
 body {
  font-family: "Roboto Slab", serif;
@@ -29,8 +30,8 @@ h2 {
 
 /** Header **/
 header {
- border-top: 5px solid $cor-padrao;
- background: rgba($cor-auxiliar, 0.8);
+ border-top: 5px solid $primeira-cor;
+ background: rgba($segunda-cor, 0.8);
  height: 90px;
  width: 100%;
  position: absolute;
@@ -93,7 +94,7 @@ header .container {
 
 .destaque button {
  margin-top: 1em;
- background: $cor-padrao;
+ background: $primeira-cor;
  border: 0;
  padding: .6em;
  font-size: 1.2em;
@@ -161,11 +162,11 @@ header .container {
 
 /** Planos **/
 .planos {
- background: $cor-auxiliar;
+ background: $segunda-cor;
 }
 
 .planos h2 {
- color: #fff;
+ color: $terceira-cor;
 }
 
 .plano {
@@ -181,9 +182,9 @@ header .container {
 }
 
 .plano h3 {
- color: #fff;
+ color: $terceira-cor;
  font-size: 1.8em;
- background: $cor-padrao;
+ background: $primeira-cor;
  text-align: center;
  height: 2em;
  padding-top: .6em;
@@ -192,7 +193,7 @@ header .container {
 
 .plano div {
  text-align: center;
- color: $cor-padrao;
+ color: $primeira-cor;
  font-size: 2.75em;
 }
 
@@ -217,9 +218,9 @@ header .container {
 }
 
 .plano button {
- background: $cor-padrao;
+ background: $primeira-cor;
  border: 0;
- color: #fff;
+ color: $terceira-cor;
  width: 210px;
  height: 38px;
  font-size: 1.2em;
@@ -315,9 +316,9 @@ textarea {
 
 .contato button {
  margin: 0 auto;
- background: $cor-padrao;
+ background: $primeira-cor;
  border: 0;
- color: #fff;
+ color: $terceira-cor;
  width: 210px;
  height: 38px;
  font-size: 1.2em;
@@ -346,7 +347,7 @@ footer::after {
 
 footer::before {
  content: "";
- background: $cor-auxiliar;
+ background: $segunda-cor;
  top: 0;
  left: 0;
  bottom: 0;
@@ -391,7 +392,7 @@ footer .container img {
 }
 
 footer a {
- color: #fff;
+ color: $terceira-cor;
  text-decoration: none;
 }
 
