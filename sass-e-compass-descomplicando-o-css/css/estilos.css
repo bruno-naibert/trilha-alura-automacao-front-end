@@ -380,8 +380,8 @@ h2 {
 
 /** Header **/
 header {
-  border-top: 5px solid #c24e4b;
-  background: rgba(30, 44, 53, 0.8);
+  border-top: 5px solid #571f1d;
+  background: rgba(145, 174, 193, 0.8);
   height: 90px;
   width: 100%;
   position: absolute; }
@@ -429,7 +429,7 @@ header .container {
 
 .destaque button {
   margin-top: 1em;
-  background: #c24e4b;
+  background: #571f1d;
   border: 0;
   padding: .6em;
   font-size: 1.2em;
@@ -485,7 +485,7 @@ header .container {
 
 /** Planos **/
 .planos {
-  background: #1e2c35; }
+  background: #91aec1; }
 
 .planos h2 {
   color: #fff; }
@@ -503,7 +503,7 @@ header .container {
 .plano h3 {
   color: #fff;
   font-size: 1.8em;
-  background: #c24e4b;
+  background: #571f1d;
   text-align: center;
   height: 2em;
   padding-top: .6em;
@@ -511,7 +511,7 @@ header .container {
 
 .plano div {
   text-align: center;
-  color: #c24e4b;
+  color: #571f1d;
   font-size: 2.75em; }
 
 .itens-plano {
@@ -528,7 +528,7 @@ header .container {
     float: right; }
 
 .plano button {
-  background: #c24e4b;
+  background: #571f1d;
   border: 0;
   color: #fff;
   width: 210px;
@@ -611,7 +611,7 @@ textarea {
 
 .contato button {
   margin: 0 auto;
-  background: #c24e4b;
+  background: #571f1d;
   border: 0;
   color: #fff;
   width: 210px;
@@ -640,7 +640,7 @@ footer::after {
 
 footer::before {
   content: "";
-  background: #1e2c35;
+  background: #91aec1;
   top: 0;
   left: 0;
   bottom: 0;
