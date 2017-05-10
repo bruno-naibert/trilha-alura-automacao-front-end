@@ -1,4 +1,4 @@
-.sprite-sprite {
+.sprite-sprite, .sprite-icone-ok, .sprite-icone-x {
   background-image: url('/imagens/sprite-sed99d15b73.png');
   background-repeat: no-repeat;
 }
@@ -675,18 +675,25 @@ header .container {
   margin-left: 2em;
 }
 
+.sprite-icone-ok {
+  background-position: 0 0;
+}
+
+.sprite-icone-x {
+  background-position: 0 -20px;
+}
+
 .icone-check, .icone-x {
-  background: url(../imagens/sprite.png) no-repeat;
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
 }
 
 .icone-check {
-  background-position: -5px -5px;
+  background-position: 0 0;
 }
 
 .icone-x {
-  background-position: -33px -5px;
+  background-position: 0 -20px;
 }
 
 /** Blog **/
