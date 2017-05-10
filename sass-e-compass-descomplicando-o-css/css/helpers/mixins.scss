@@ -5,7 +5,7 @@
 }
 
 @function multiplica-pela-fonte($multiplicador) {
-  @return $multiplicador * $font-size-default;
+  @return round($multiplicador * $font-size-default);
 }
 
 %image-replacement {
