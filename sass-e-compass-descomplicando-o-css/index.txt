@@ -1,0 +1,2 @@
+Para rodar o compass digite no terminal: compass watch css/estilos.scss o
+compass vai se encarregar de compilar o scss para css/estilos.css
