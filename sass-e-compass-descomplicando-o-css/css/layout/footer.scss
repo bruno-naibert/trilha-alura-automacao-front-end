@@ -28,8 +28,8 @@ footer::before {
 }
 
 footer .container {
-  padding-top: 3 * $font-size-default;
-  height: 6.5 * $font-size-default;
+  padding-top: multiplica-pela-fonte(3);
+  height: multiplica-pela-fonte(6.5);
   position: relative;
 }
 
