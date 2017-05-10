@@ -68,15 +68,7 @@
   margin-left: 2em;
 }
 @include all-sprite-sprites;
-.icone-check, .icone-x {
+.sprite-icone-check, .sprite-icone-x {
   width: 19px;
   height: 19px;
-}
-
-.icone-check {
-  background-position: 0 0;
-}
-
-.icone-x {
-  background-position: 0 -20px;
 }

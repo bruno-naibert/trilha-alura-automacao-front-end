@@ -1,5 +1,5 @@
-.sprite-sprite, .sprite-icone-ok, .sprite-icone-x {
-  background-image: url('/imagens/sprite-sed99d15b73.png');
+.sprite-sprite, .sprite-icone-check, .sprite-icone-x {
+  background-image: url('../imagens/sprite-sf199eefaf3.png');
   background-repeat: no-repeat;
 }
 
@@ -675,7 +675,7 @@ header .container {
   margin-left: 2em;
 }
 
-.sprite-icone-ok {
+.sprite-icone-check {
   background-position: 0 0;
 }
 
@@ -683,17 +683,9 @@ header .container {
   background-position: 0 -20px;
 }
 
-.icone-check, .icone-x {
+.sprite-icone-check, .sprite-icone-x {
   width: 19px;
   height: 19px;
-}
-
-.icone-check {
-  background-position: 0 0;
-}
-
-.icone-x {
-  background-position: 0 -20px;
 }
 
 /** Blog **/
